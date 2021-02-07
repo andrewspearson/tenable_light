@@ -39,7 +39,7 @@ import tenable_light
 ```
 
 ### Client creation
-Authentication information may be passed directly or through an INI file. See ```tenable.ini.example``` for INI file usage.
+Authentication information may be passed directly or through an INI file. See ```tenable.ini``` for INI file usage.
 
 Tenable Downloads client reading Bearer token directly
 ```python
