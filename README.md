@@ -6,6 +6,8 @@ tenable_light follows these principles:
 * Work with system installs of Python 3. No need to create Python virtual environments.
 * All functions are provided in a single file for easy portability.
 * Provide authentication functions for Tenable APIs.
+    * API key authentication.
+    * Username / password authentication including a ```logout()``` function.
 * Provide a single raw API request function.
 
 
