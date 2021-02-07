@@ -29,7 +29,7 @@ TLDR, run this command:
 ```
 $ /Applications/Python {version}/Install Certificates.command
 ```
-This seems to only be an issue on MacOS.
+This seems to only be an issue on macOS.
 ## Usage
 ### Import
 ```python
@@ -84,7 +84,7 @@ HTTPS proxy ```proxy=``` and SSL verification ```verify=``` options are also ava
 
 ### API request
 
-After a client is established, you can use the request function.
+After a client is established, you can use the API request function.
 
 Full example
 ```python
