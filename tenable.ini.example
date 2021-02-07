@@ -1,0 +1,17 @@
+[downloads]
+bearer_token = {bearer token}
+# proxy = 127.0.0.1:8080
+# verify = False
+
+[tenable_io]
+access_key = {access key}
+secret_key = {secret key}
+# proxy = 127.0.0.1:8080
+# verify = False
+
+[tenable_sc]
+host = tenablesc.corp.local
+access_key = {access key}
+secret_key = {secret key}
+# proxy = 127.0.0.1:8080
+# verify = False
