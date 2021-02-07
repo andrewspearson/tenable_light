@@ -6,9 +6,6 @@ import json
 
 config = configparser.ConfigParser()
 config.read('tenable.ini')
-downloads_config = config['downloads']
-tio_config = config['tenable_io']
-tsc_config = config['tenable_sc']
 
 
 def request(method, host, endpoint, headers=None, data=None, proxy=None, verify=None):
