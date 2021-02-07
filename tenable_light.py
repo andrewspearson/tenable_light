@@ -118,7 +118,7 @@ class TenableIO:
         return json.load(response)
 
     def logout(self):
-        response = request('DELETE', self.host, '/session', self.headers, proxy=self.proxy, verify=self.verify)
+        response = self.request('DELETE', '/session')
         return response
 
 
