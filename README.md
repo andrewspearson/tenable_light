@@ -13,7 +13,7 @@ See Tenable's [pyTenable](https://github.com/tenable/pyTenable) for a full featu
 ## Requirements
 * Python3
 ## Installation
-Drop tenable_light.py in the same directory as your program.
+Place tenable_light.py in the same directory as your program.
 ### git
 ```
 $ git clone https://github.com/andrewspearson/tenable_light.git
