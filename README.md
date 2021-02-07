@@ -31,9 +31,13 @@ $ /Applications/Python {version}/Install Certificates.command
 ```
 This seems to only be an issue on MacOS.
 ## Usage
-Authentication information may be passed directly or through an INI file. See ```tenable.ini.example``` for INI file usage.
+### Import
+```python
+import tenable_light
+```
 
 ### Client creation
+Authentication information may be passed directly or through an INI file. See ```tenable.ini.example``` for INI file usage.
 
 Tenable Downloads client reading Bearer token directly
 ```python
@@ -82,16 +86,22 @@ HTTPS proxy ```proxy=``` and SSL verification ```verify=``` options are also ava
 
 After a client is established, you can use the request function.
 
-GET example
+Full example
 ```python
-response = tio1.request('GET', '/scans')
+import tenable_light
+import json
+
+# Create client
+tio = tenable_light.TenableIO('ACCESS_KEY', 'SECRET_KEY')
+
+# GET example
+response = tio.request('GET', '/scans')
 for scan in json.load(response)['scans']:
     print(scan['name'] + ': ' + scan['status'])
-```
-POST example
-```python
+
+# POST example
 scan_id = str(100)
-response = tio1.request(
+response = tio.request(
     method='POST',
     endpoint='/scans/' + scan_id + '/export',
     data={
