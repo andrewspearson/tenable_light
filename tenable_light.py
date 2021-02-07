@@ -118,7 +118,8 @@ class TenableIO:
         return json.load(response)
 
     def logout(self):
-        request('DELETE', self.host, '/session', self.headers, proxy=self.proxy, verify=self.verify)
+        response = request('DELETE', self.host, '/session', self.headers, proxy=self.proxy, verify=self.verify)
+        return response
 
 
 class TenableSC:
@@ -175,4 +176,5 @@ class TenableSC:
         return {'token': token, 'cookie': cookie}
 
     def logout(self):
-        self.request('DELETE', '/token')
+        response = self.request('DELETE', '/token')
+        return response
