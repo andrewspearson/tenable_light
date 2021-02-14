@@ -32,7 +32,7 @@ def request(method, host, endpoint, url=None, headers=None, data=None, proxy=Non
         response = urllib.request.urlopen(request_, context=context)
         return response
     except HTTPError as error:
-        print('\nERROR: HTTP ' + str(error.code) + ' - https://' + host + endpoint)
+        print('\nERROR: HTTP ' + str(error.code))
         print(error.reason)
 
 
