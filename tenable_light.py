@@ -8,8 +8,12 @@ config = configparser.ConfigParser()
 config.read('tenable.ini')
 
 
-def request(method, host, endpoint, headers=None, data=None, proxy=None, verify=None):
-    request_ = urllib.request.Request('https://' + host + endpoint)
+def request(method, host, endpoint, url=None, headers=None, data=None, proxy=None, verify=None):
+    # url should only be used by the Downloads class
+    if url is None:
+        request_ = urllib.request.Request('https://' + host + endpoint)
+    else:
+        request_ = urllib.request.Request(url)
     request_.method = method
     request_.add_header('accept', 'application/json')
     request_.add_header('content-type', 'application/json')
@@ -66,9 +70,9 @@ class Downloads:
             "Authorization": "Bearer " + self.bearer_token
         }
 
-    def request(self, endpoint):
-        endpoint = '/downloads/api/v2' + endpoint
-        response = request('GET', self.host, endpoint, self.headers, None, self.proxy, self.verify)
+    def request(self, url):
+        # url is used for Downloads in order to easily work with the files_index_url, and file_url values
+        response = request('GET', None, None, url, self.headers, None, self.proxy, self.verify)
         return response
 
 
@@ -109,7 +113,7 @@ class TenableIO:
             self.headers = {"x-cookie": "token=" + auth['token']}
 
     def request(self, method, endpoint, data=None):
-        response = request(method, self.host, endpoint, self.headers, data, self.proxy, self.verify)
+        response = request(method, self.host, endpoint, None, self.headers, data, self.proxy, self.verify)
         return response
 
     def _login(self):
@@ -162,7 +166,7 @@ class TenableSC:
 
     def request(self, method, endpoint, data=None):
         endpoint = '/rest' + endpoint
-        response = request(method, self.host, endpoint, self.headers, data, self.proxy, self.verify)
+        response = request(method, self.host, endpoint, None, self.headers, data, self.proxy, self.verify)
         return response
 
     def _login(self):
