@@ -8,7 +8,7 @@ config = configparser.ConfigParser()
 config.read('tenable.ini')
 
 
-def request(method, host, endpoint, url=None, headers=None, data=None, proxy=None, verify=None):
+def request(method, host, endpoint, url=None, headers=None, data=None, proxy=None, verify=True):
     # url should only be used by the Downloads class
     if url is None:
         request_ = urllib.request.Request('https://' + host + endpoint)
